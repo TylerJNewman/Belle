@@ -26,8 +26,8 @@ const DesktopNavHeader = () => (
         role="navigation"
         aria-label="Main navigation"
         spacing="10"
-        fontWeight="semibold"
-        fontSize="sm"
+        // fontWeight="semibold"
+        fontSize="md"
         style={{flex: '1 1 0'}}
       >
         <Link href="#">Collection</Link>

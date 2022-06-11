@@ -3,7 +3,6 @@ import {Footer} from './Footer'
 import {MobileBottomNav} from './MobileBottomNav'
 import {NavHeader} from './NavHeader'
 import {NavMenu} from './NavMenu'
-import {ProductsGrid} from './ProductsGrid'
 import {TopBanner} from './TopBanner'
 
 export const App = () => (
@@ -14,7 +13,6 @@ export const App = () => (
     <NavHeader.Mobile />
     <NavMenu.Mobile />
     <MobileBottomNav />
-    <ProductsGrid />
     <Footer />
   </>
 )
