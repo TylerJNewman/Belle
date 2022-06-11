@@ -11,9 +11,7 @@ import {
 } from '@chakra-ui/react'
 import {FaGithub, FaLinkedin, FaTwitter} from 'react-icons/fa'
 
-import {Logo} from './Logo'
-
-const Footer = () => (
+export const Footer = () => (
   <>
     <Stack
       spacing="8"
@@ -112,4 +110,3 @@ const Footer = () => (
     </Stack>
   </>
 )
-export default Footer

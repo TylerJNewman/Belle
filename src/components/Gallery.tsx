@@ -16,8 +16,11 @@ import useInterval from 'hooks/useInterval'
 import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/io5'
 import {config} from 'react-spring'
 import {useTransitionCarousel} from 'react-spring-carousel'
-import {ProductImage} from './_carousel_data'
 
+interface ProductImage {
+  url: string
+  fileName: string
+}
 interface GalleryProps {
   images: ProductImage[]
   aspectRatio?: number
@@ -38,9 +41,9 @@ export const Gallery = (props: GalleryProps) => {
         renderItem: (
           <AspectRatio ratio={aspectRatio}>
             <Image
-              src={image.src}
+              src={image.url}
               objectFit="cover"
-              alt={image.alt}
+              alt={image.fileName}
               fallback={<Skeleton />}
             />
           </AspectRatio>

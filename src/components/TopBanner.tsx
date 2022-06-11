@@ -11,7 +11,7 @@ export const TopBanner = (props: BoxProps) => {
       fontWeight="medium"
       {...props}
     >
-      Free shipping on all orders before 24th December 2021
+      Free shipping on all orders before 24th December 2022
     </Box>
   )
 }
