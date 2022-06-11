@@ -1,16 +1,19 @@
 import * as React from 'react'
-import {MobileBottomNav} from 'components/MobileBottomNav'
 import {NavHeader} from 'components/NavHeader'
-import {NavMenu} from 'components/NavMenu'
 import {TopBanner} from 'components/TopBanner'
+import HeroCarousel from 'components/HeroCarousel'
+import Footer from 'components/Footer'
 
 const Index = () => (
   <>
     <TopBanner />
     <NavHeader.Desktop />
+
     {/* <NavMenu.Desktop /> */}
     <NavHeader.Mobile />
+    <HeroCarousel />
     {/* <NavMenu.Mobile /> */}
+    <Footer />
   </>
 )
 
