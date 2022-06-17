@@ -68,6 +68,7 @@ const MobileNavHeader = (props: {
       py="4"
       align="center"
       justify="space-between"
+      bg={mode('white', 'gray.800')}
       display={{base: 'flex', lg: 'none'}}
       borderBottom="1px"
       borderColor="gray.200"
