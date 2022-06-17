@@ -7,7 +7,7 @@ import {TopBanner} from './TopBanner'
 
 export const App = () => (
   <>
-    <TopBanner />
+    {/* <TopBanner /> */}
     <NavHeader.Desktop />
     <NavMenu.Desktop />
     <NavHeader.Mobile />

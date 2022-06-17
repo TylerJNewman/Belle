@@ -9,7 +9,6 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 import {MdMenu, MdSearch} from 'react-icons/md'
-import {CurrencySelect} from './CurrencySelect'
 import {items} from './NavItemIcons'
 import {NavAction} from './NavAction'
 import Image from 'next/image'
@@ -20,6 +19,13 @@ const DesktopNavHeader = () => (
     bg={mode('white', 'gray.800')}
     px="10"
     display={{base: 'none', lg: 'block'}}
+    borderBottom="1px"
+    borderColor="gray.200"
+    as="header"
+    position="fixed"
+    top={0}
+    zIndex={200}
+    width="100%"
   >
     <Flex align="center" maxWidth="8xl" mx="auto">
       <HStack
@@ -38,7 +44,7 @@ const DesktopNavHeader = () => (
       </HStack>
       <a href="#" rel="home" aria-label="Go to Store Homepage">
         {/* <Logo h="4" /> */}
-        <Image src="/logo.webp" alt="me" width="205" height="102.5" />
+        <Image src="/logo.webp" alt="me" width="205" height="59" />
       </a>
       <HStack spacing="4" style={{flex: '1 1 0', justifyContent: 'flex-end'}}>
         <HStack spacing="4">
@@ -63,6 +69,13 @@ const MobileNavHeader = (props: {
       align="center"
       justify="space-between"
       display={{base: 'flex', lg: 'none'}}
+      borderBottom="1px"
+      borderColor="gray.200"
+      as="header"
+      position="fixed"
+      top={0}
+      zIndex={200}
+      width="100%"
     >
       <HStack spacing="3">
         <Center w="8" h="8" as="button" type="button" onClick={onClickMenu}>
@@ -70,10 +83,10 @@ const MobileNavHeader = (props: {
           <Box as={MdMenu} fontSize="3xl" />
         </Center>
         {/* <Logo h="4" /> */}
-        <Image src="/logo.webp" alt="me" width="205" height="102.5" />
       </HStack>
+      <Image src="/logo.webp" alt="me" width="205" height="59" />
       <HStack>
-        <CurrencySelect />
+        {/* <CurrencySelect /> */}
         <Center
           w="8"
           h="8"

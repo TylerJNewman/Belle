@@ -7,25 +7,17 @@ import {
   gql,
 } from '@apollo/client'
 
-import {NavHeader} from 'components/NavHeader'
-import {TopBanner} from 'components/TopBanner'
 import {HeroCarousel} from 'components/HeroCarousel'
-import {Footer} from 'components/Footer'
+
 import {ProductsGrid} from 'components/ProductsGrid'
 
 const Index = ({home, products}) => {
   const {carouselItems} = home
   return (
     <>
-      <TopBanner />
-      <NavHeader.Desktop />
-
-      {/* <NavMenu.Desktop /> */}
-      <NavHeader.Mobile />
       <HeroCarousel items={carouselItems} />
       {/* <NavMenu.Mobile /> */}
       <ProductsGrid products={products} />
-      <Footer />
     </>
   )
 }
