@@ -40,8 +40,13 @@ function index() {
 
   return (
     <>
-      <Box py="12" bg={mode('white', 'gray.800')} px="10">
-        <div className="lg:max-w-[1440px] md:max-w-[744px] max-w-[375px] mx-auto">
+      <Box
+        py={{base: 7, md: 12}}
+        bg={mode('white', 'gray.800')}
+        px={{base: 4, lg: 10}}
+      >
+        {/* max-w-[375px]  */}
+        <div className="lg:max-w-[1440px] md:max-w-[744px] mx-auto">
           <div className="lg:flex md:flex block justify-between gap-x-6 ">
             <div className="lg:block md:block hidden ">
               <div className="h-full lg:space-y-5 space-y-8">
