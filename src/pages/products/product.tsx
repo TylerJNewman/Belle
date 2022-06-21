@@ -6,7 +6,6 @@ import {
   Stack,
   useColorModeValue as mode,
 } from '@chakra-ui/react'
-import {ImageWithState} from 'components/ImageWithState'
 import {PriceTag} from 'components/PriceTag'
 import {QuantityPicker} from 'components/QuantityPicker'
 import {SizePicker} from 'components/SizePicker'
@@ -84,49 +83,11 @@ function index() {
                       className="flex flex-shrink-0"
                       style={{transform: 'translateX(-100%)'}}
                     >
-                      <ImageWithState
-                        // src={images[0].url}
-                        // alt={images[0].fileName}
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/image%20198%20%282%29.png"
-                        alt="bag"
-                        className="lg:block md:hidden"
-                        fallback="/image.webp"
-                        skeletonProps={{
-                          startColor: 'rgb(255, 236, 222)',
-                          endColor: 'rgb(244, 205, 174)',
-                        }}
-                        layout="fill"
-                      />
-                      <ImageWithState
-                        // src={images[0].url}
-                        // alt={images[0].fileName}
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/image%20198%20%282%29.png"
-                        alt="bag"
-                        className="lg:block md:hidden"
-                        fallback="/image.webp"
-                        skeletonProps={{
-                          startColor: 'rgb(255, 236, 222)',
-                          endColor: 'rgb(244, 205, 174)',
-                        }}
-                        layout="fill"
-                      />
-                      <ImageWithState
-                        // src={images[0].url}
-                        // alt={images[0].fileName}
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/detail4545.png"
-                        className="lg:block md:hidden"
-                        fallback="/image.webp"
-                        skeletonProps={{
-                          startColor: 'rgb(255, 236, 222)',
-                          endColor: 'rgb(244, 205, 174)',
-                        }}
-                        layout="fill"
-                      />
-                      {/* <img
+                      <img
                         className="hidden object-cover object-center w-full h-full lg:block md:hidden"
                         src="https://tuk-cdn.s3.amazonaws.com/can-uploader/image%20198%20%282%29.png"
                         alt="bag"
-                      /> 
+                      />
                       <img
                         className="hidden object-cover object-center w-full h-full lg:hidden md:block"
                         src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sofaset45423859072.png"
@@ -134,7 +95,7 @@ function index() {
                       <img
                         className="block  w-full h-full lg:hidden md:hidden"
                         src="https://tuk-cdn.s3.amazonaws.com/can-uploader/detail4545.png"
-                      /> */}
+                      />
                     </div>
                     <div
                       className="flex flex-shrink-0"
