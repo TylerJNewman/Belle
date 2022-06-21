@@ -751,6 +751,21 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
+"@graphcms/rich-text-react-renderer@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@graphcms/rich-text-react-renderer/-/rich-text-react-renderer-0.5.0.tgz#73081b855bf4f1d1fc2fa83dfd68016c799c425a"
+  integrity sha512-aNAUNSl45se7i0Ywwmdm2sj1kImwBFlvAW44fuwbGzgvErdDg++bl+vRhV4GE+bFjARsGRPlGWXcJGI/+bZRbg==
+  dependencies:
+    "@graphcms/rich-text-types" "^0.4.0"
+    escape-html "^1.0.3"
+
+"@graphcms/rich-text-types@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@graphcms/rich-text-types/-/rich-text-types-0.4.0.tgz#f032143270b28d0d2fe41d1f63bd6db7de4aa90f"
+  integrity sha512-eqvI/FrtHH9k+AYpKJ6ZMlc8eZmwidam8YlObDD9wBfEJhK2vnQ7ERU01IGiq/jzwVdEPeId/AhQREZUFVaApg==
+  dependencies:
+    tslib "^2.0.0"
+
 "@graphql-typed-document-node/core@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.1.tgz#076d78ce99822258cf813ecc1e7fa460fa74d052"
@@ -1368,6 +1383,11 @@ escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
   integrity sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==
+
+escape-html@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
+  integrity sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
