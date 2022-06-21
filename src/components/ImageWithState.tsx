@@ -29,7 +29,7 @@ function ImageWithState({
 
   return (
     <>
-      {/* {loading === true && (
+      {loading === true && (
         <Skeleton
           style={{
             position: 'absolute',
@@ -40,16 +40,12 @@ function ImageWithState({
           width={props.width}
           {...skeletonProps}
         />
-      )} */}
+      )}
       <Image
-        src={src}
-        objectFit="cover"
-        width="100%"
-        height="100%"
         {...props}
-        // src={onErrorSrc || src}
-        // onLoadingComplete={() => !props.debug && setLoading(false)}
-        // onError={e => handleOnError(e)}
+        src={onErrorSrc || src}
+        onLoadingComplete={() => !props.debug && setLoading(false)}
+        onError={e => handleOnError(e)}
       />
     </>
   )
