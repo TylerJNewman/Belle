@@ -29,7 +29,7 @@ export const SizePicker = (props: SizePickerProps) => {
   return (
     <FormControl {...rootProps}>
       {!hideLabel && (
-        <FormLabel fontSize="sm" fontWeight="medium">
+        <FormLabel fontSize="md" fontWeight="medium">
           {label ?? `Size: ${selectedOption?.label}`}
         </FormLabel>
       )}

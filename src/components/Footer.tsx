@@ -18,7 +18,8 @@ export const Footer = () => (
       direction={{base: 'column', md: 'row'}}
       justify="space-between"
       py={{base: '12', md: '16'}}
-      px={{base: '5px', sm: '64px'}}
+      // px={{base: '5px', sm: '64px'}}
+      px="4"
       bg={'rgb( 245, 241, 236)'}
     >
       <Stack spacing={{base: '6', md: '8'}} align="start">

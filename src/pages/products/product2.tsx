@@ -3,7 +3,7 @@ import React from 'react'
 import {MobileBottomNav} from 'components/MobileBottomNav'
 import {NavMenu} from 'components/NavMenu'
 import {Gallery} from 'components/Gallery'
-// import {images} from 'components/_carousel_data'
+import {images} from 'components/_carousel_data'
 import {
   Box,
   Stack,
@@ -14,6 +14,10 @@ import {
   Button,
   Text,
   Link,
+  AspectRatio,
+  Skeleton,
+  Image,
+  GridItem,
 } from '@chakra-ui/react'
 import {FiClock, FiHeart} from 'react-icons/fi'
 import {RiRulerLine} from 'react-icons/ri'
@@ -34,6 +38,8 @@ const ProductWithCarousel = () => {
       <Stack
         direction={{base: 'column-reverse', lg: 'row'}}
         spacing={{base: '6', lg: '12', xl: '16'}}
+        display="flex"
+        justifyContent="space-around"
       >
         <Stack
           spacing={{base: '6', lg: '8'}}
@@ -42,7 +48,7 @@ const ProductWithCarousel = () => {
         >
           <Stack spacing={{base: '3', md: '4'}}>
             <Stack spacing="3">
-              <HStack alignSelf="baseline">
+              {/* <HStack alignSelf="baseline">
                 <Rating defaultValue={4} size="sm" />
                 <Link
                   href="#"
@@ -52,22 +58,22 @@ const ProductWithCarousel = () => {
                 >
                   12 Reviews
                 </Link>
-              </HStack>
+              </HStack> */}
               <Heading size="lg" fontWeight="medium">
                 Classic Black
               </Heading>
             </Stack>
             <PriceTag price={229} currency="GBP" rootProps={{fontSize: 'xl'}} />
-            <Text color={useColorModeValue('gray.600', 'gray.400')}>
+            {/* <Text color={useColorModeValue('gray.600', 'gray.400')}>
               With a sleek design and a captivating essence, this is a modern
               Classic made for every occasion.
-            </Text>
+            </Text> */}
           </Stack>
           <Stack
             direction={{base: 'column', md: 'row'}}
             spacing={{base: '6', md: '8'}}
           >
-            <Stack flex="1">
+            {/* <Stack flex="1">
               <ColorPicker
                 defaultValue="Black"
                 options={[
@@ -85,17 +91,17 @@ const ProductWithCarousel = () => {
                   Low stock
                 </Text>
               </HStack>
-            </Stack>
+            </Stack> */}
             <Stack flex="1">
               <SizePicker
-                defaultValue="32"
+                defaultValue="S"
                 options={[
-                  {label: '32mm', value: '32'},
-                  {label: '36mm', value: '36'},
-                  {label: '40mm', value: '40'},
+                  {label: 'S', value: 'S'},
+                  {label: 'M', value: 'M'},
+                  {label: 'L', value: 'L'},
                 ]}
               />
-              <HStack
+              {/* <HStack
                 spacing="1"
                 color={useColorModeValue('gray.600', 'gray.400')}
               >
@@ -108,18 +114,18 @@ const ProductWithCarousel = () => {
                 >
                   View our sizing guide
                 </Link>
-              </HStack>
+              </HStack> */}
             </Stack>
           </Stack>
           <HStack
             spacing={{base: '4', md: '8'}}
             align="flex-end"
-            justify="space-evenly"
+            // justify="space-evenly"
           >
-            <Box flex="1">
+            <Box flex="1" maxWidth={'9em'}>
               <QuantityPicker defaultValue={1} max={3} />
             </Box>
-            <Box flex="1">
+            {/* <Box flex="1">
               <Button
                 variant="outline"
                 size="lg"
@@ -129,13 +135,20 @@ const ProductWithCarousel = () => {
               >
                 Favorite
               </Button>
-            </Box>
+            </Box> */}
           </HStack>
           <Button colorScheme="blue" size="lg">
             Add to cart
           </Button>
         </Stack>
-        <Gallery rootProps={{overflow: 'hidden', flex: '1'}} images={[]} />
+        <AspectRatio ratio={3 / 4} height={'844px'} width={'562px'}>
+          <Image
+            src={'https://placekitten.com/200/287'}
+            draggable="false"
+            fallback={<Skeleton />}
+            borderRadius="md"
+          />
+        </AspectRatio>
       </Stack>
     </Box>
   )

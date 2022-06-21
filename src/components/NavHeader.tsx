@@ -3,7 +3,6 @@ import {
   Center,
   Flex,
   HStack,
-  Link,
   useColorModeValue as mode,
   VisuallyHidden,
 } from '@chakra-ui/react'
@@ -12,6 +11,7 @@ import {MdMenu, MdSearch} from 'react-icons/md'
 import {items} from './NavItemIcons'
 import {NavAction} from './NavAction'
 import Image from 'next/image'
+import {NextLink} from './NextLink'
 
 const DesktopNavHeader = () => (
   <Box
@@ -19,8 +19,8 @@ const DesktopNavHeader = () => (
     bg={mode('white', 'gray.800')}
     px="10"
     display={{base: 'none', lg: 'block'}}
-    // borderBottom="1px"
-    // borderColor="gray.200"
+    borderBottom="1px"
+    borderColor="gray.200"
     as="header"
     position="fixed"
     top={0}
@@ -36,11 +36,11 @@ const DesktopNavHeader = () => (
         fontSize="md"
         style={{flex: '1 1 0'}}
       >
-        <Link href="#">Collection</Link>
-        <Link href="#" color={mode('blue.500', 'blue.200')}>
+        <NextLink href="#">Collection</NextLink>
+        <NextLink href="#" color={mode('blue.500', 'blue.200')}>
           Accessories
-        </Link>
-        <Link href="#">About us</Link>
+        </NextLink>
+        <NextLink href="/about">About us</NextLink>
       </HStack>
       <a href="#" rel="home" aria-label="Go to Store Homepage">
         {/* <Logo h="4" /> */}
@@ -70,8 +70,8 @@ const MobileNavHeader = (props: {
       justify="space-between"
       bg={mode('white', 'gray.800')}
       display={{base: 'flex', lg: 'none'}}
-      // borderBottom="1px"
-      // borderColor="gray.200"
+      borderBottom="1px"
+      borderColor="gray.200"
       as="header"
       position="fixed"
       top={0}
@@ -85,7 +85,7 @@ const MobileNavHeader = (props: {
         </Center>
         {/* <Logo h="4" /> */}
       </HStack>
-      <Image src="/logo.webp" alt="me" width="205" height="59" />
+      <Image src="/logo.webp" alt="me" width="205" height="59" layout="fixed" />
       <HStack>
         {/* <CurrencySelect /> */}
         <Center

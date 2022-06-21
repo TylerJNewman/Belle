@@ -1,7 +1,11 @@
 import * as React from 'react'
+
+import NextImage from 'next/image'
+
 import {
   AspectRatio,
   Box,
+  chakra,
   Circle,
   HStack,
   IconButton,
@@ -12,10 +16,10 @@ import {
   StackProps,
   useColorModeValue,
 } from '@chakra-ui/react'
-import useInterval from 'hooks/useInterval'
-import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/io5'
-import {config} from 'react-spring'
-import {useTransitionCarousel} from 'react-spring-carousel'
+// import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/io5'
+import {animated, config, useTransition} from 'react-spring'
+import {useState} from 'react'
+import {ImageWithState} from './ImageWithState'
 
 interface ProductImage {
   url: string
@@ -31,27 +35,20 @@ export const Gallery = (props: GalleryProps) => {
   const {images, aspectRatio = 4 / 3, rootProps} = props
   const [currentSlide, setCurrentSlide] = React.useState(0)
 
-  const {carouselFragment, slideToPrevItem, slideToNextItem} =
-    useTransitionCarousel({
-      springConfig: config.molasses,
-      withLoop: true,
-      // @ts-ignore
-      items: images.map((image, i) => ({
-        id: i,
-        renderItem: (
-          <AspectRatio ratio={aspectRatio}>
-            <Image
-              src={image.url}
-              objectFit="cover"
-              alt={image.fileName}
-              fallback={<Skeleton />}
-            />
-          </AspectRatio>
-        ) as React.ReactNode,
-      })),
-    })
+  const [toggle, set] = useState(false)
 
-  useInterval(slideToNextItem, 3000)
+  const transitions = useTransition(toggle, {
+    from: {position: 'absolute', opacity: 0},
+    enter: {opacity: 1},
+    leave: {opacity: 0},
+    reverse: toggle,
+    delay: 200,
+    config: config.molasses,
+    onRest: () => set(!toggle),
+  })
+
+  // startColor="rgb(255, 236, 222)"
+  // endColor="rgb(244, 205, 174)"
 
   return (
     <Stack spacing="4" {...rootProps}>
@@ -61,8 +58,80 @@ export const Gallery = (props: GalleryProps) => {
           height: 760,
         }}
       >
-        {carouselFragment}
-        <CarouselIconButton
+        {transitions(({opacity}, item) =>
+          item ? (
+            <animated.div
+              style={{
+                height: '100%',
+                width: '100%',
+                position: 'absolute',
+                opacity: opacity.to({range: [0.0, 1.0], output: [0, 1]}),
+              }}
+            >
+              <AspectRatio ratio={aspectRatio} maxW="100%">
+                <ImageWithState
+                  src={images[0].url}
+                  alt={images[0].fileName}
+                  fallback="/image.webp"
+                  skeletonProps={{
+                    startColor: 'rgb(255, 236, 222)',
+                    endColor: 'rgb(244, 205, 174)',
+                  }}
+                  priority
+                  layout="fill"
+                />
+                {/* <NextImage
+                  src={images[0].url}
+                  objectFit="cover"
+                  alt={images[0].fileName}
+                  // fallback={
+                  //   <Skeleton
+                  //     startColor="rgb(255, 236, 222)"
+                  //     endColor="rgb(244, 205, 174)"
+                  //   />
+                  // }
+                  layout="fill"
+                  priority
+                /> */}
+              </AspectRatio>
+            </animated.div>
+          ) : (
+            <animated.div
+              style={{
+                height: '100%',
+                width: '100%',
+                position: 'absolute',
+                opacity: opacity.to({range: [1.0, 0.0], output: [1, 0]}),
+              }}
+            >
+              <AspectRatio ratio={aspectRatio} maxW="100%">
+                {/* <NextImage
+                  src={images[0].url}
+                  objectFit="cover"
+                  alt={images[0].fileName}
+                  layout="fill"
+                  // fallback={
+                  //   <Skeleton
+                  //     startColor="rgb(255, 236, 222)"
+                  //     endColor="rgb(244, 205, 174)"
+                  //   />
+                  // }
+                /> */}
+                <ImageWithState
+                  src={images[1].url}
+                  alt={images[1].fileName}
+                  fallback="/image.webp"
+                  skeletonProps={{
+                    startColor: 'rgb(255, 236, 222)',
+                    endColor: 'rgb(244, 205, 174)',
+                  }}
+                  layout="fill"
+                />
+              </AspectRatio>
+            </animated.div>
+          ),
+        )}
+        {/* <CarouselIconButton
           pos="absolute"
           left="3"
           top="50%"
@@ -82,7 +151,7 @@ export const Gallery = (props: GalleryProps) => {
           onClick={slideToNextItem}
           icon={<IoChevronForwardOutline />}
           aria-label="Next Slide"
-        />
+        /> */}
         <HStack
           position="absolute"
           width="full"

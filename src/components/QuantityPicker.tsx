@@ -28,7 +28,7 @@ export const QuantityPicker = (props: QuantityPickerProps) => {
 
   return (
     <FormControl {...rootProps}>
-      <FormLabel fontSize="sm" fontWeight="medium">
+      <FormLabel fontSize="md" fontWeight="medium">
         Quantity
       </FormLabel>
       <Flex
