@@ -35,7 +35,7 @@ export const Gallery = (props: GalleryProps) => {
   const {images, aspectRatio = 4 / 3, rootProps} = props
   const [currentSlide, setCurrentSlide] = React.useState(0)
 
-  const [toggle, set] = useState(false)
+  const [toggle, set] = useState(true)
 
   const transitions = useTransition(toggle, {
     from: {position: 'absolute', opacity: 0},
@@ -46,9 +46,6 @@ export const Gallery = (props: GalleryProps) => {
     config: config.molasses,
     onRest: () => set(!toggle),
   })
-
-  // startColor="rgb(255, 236, 222)"
-  // endColor="rgb(244, 205, 174)"
 
   return (
     <Stack spacing="4" {...rootProps}>
@@ -72,13 +69,16 @@ export const Gallery = (props: GalleryProps) => {
                 <ImageWithState
                   src={images[0].url}
                   alt={images[0].fileName}
-                  fallback="/image.webp"
+                  fallbackSrc="/image.webp"
                   skeletonProps={{
                     startColor: 'rgb(255, 236, 222)',
                     endColor: 'rgb(244, 205, 174)',
                   }}
                   priority
                   layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL="/image.webp"
                 />
                 {/* <NextImage
                   src={images[0].url}
@@ -120,12 +120,15 @@ export const Gallery = (props: GalleryProps) => {
                 <ImageWithState
                   src={images[1].url}
                   alt={images[1].fileName}
-                  fallback="/image.webp"
+                  fallbackSrc="/image.webp"
                   skeletonProps={{
                     startColor: 'rgb(255, 236, 222)',
                     endColor: 'rgb(244, 205, 174)',
                   }}
                   layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL="/image.webp"
                 />
               </AspectRatio>
             </animated.div>

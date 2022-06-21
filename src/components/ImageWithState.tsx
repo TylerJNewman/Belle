@@ -1,12 +1,38 @@
 import React from 'react'
-import Image, {ImageProps} from 'next/image'
-import {Skeleton, SkeletonProps} from '@chakra-ui/react'
+import NextImage, {ImageProps} from 'next/image'
+import {
+  chakra,
+  Skeleton,
+  SkeletonProps,
+  ImageProps as IP,
+} from '@chakra-ui/react'
 
-type ImageWithStateProps = ImageProps & {
-  skeletonProps?: SkeletonProps
-  fallback: string
-  debug?: string
-}
+const Image = chakra(NextImage, {
+  // baseStyle: {maxH: 120, maxW: 120},
+  shouldForwardProp: prop =>
+    [
+      'width',
+      'height',
+      'src',
+      'alt',
+      'quality',
+      'placeholder',
+      'blurDataURL',
+      'loader ',
+      'onLoadingComplete',
+      'onError',
+      'layout',
+      'priority',
+      'objectFit',
+    ].includes(prop),
+})
+
+type ImageWithStateProps = ImageProps &
+  IP & {
+    skeletonProps?: SkeletonProps
+    fallbackSrc: string
+    debug?: string
+  }
 
 function ImageWithState({
   src,
@@ -22,8 +48,8 @@ function ImageWithState({
     e: React.SyntheticEvent<HTMLImageElement, Event>,
   ): void {
     console.log('handle on error')
-    if (e?.currentTarget?.src !== props.fallback) {
-      setOnErrorSrc(props.fallback)
+    if (e?.currentTarget?.src !== props.fallbackSrc) {
+      setOnErrorSrc(props.fallbackSrc)
     }
   }
 
@@ -43,7 +69,9 @@ function ImageWithState({
       )}
       <Image
         {...props}
-        src={onErrorSrc || src}
+        height={props.height ?? '100%'}
+        width={props.width ?? '100%'}
+        src={onErrorSrc ?? src}
         onLoadingComplete={() => !props.debug && setLoading(false)}
         onError={e => handleOnError(e)}
       />
