@@ -10,6 +10,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 import {FaGithub, FaLinkedin, FaTwitter} from 'react-icons/fa'
+import {NextLink} from './NextLink'
 
 export const Footer = () => (
   <>
@@ -19,7 +20,7 @@ export const Footer = () => (
       justify="space-between"
       py={{base: '12', md: '16'}}
       // px={{base: '5px', sm: '64px'}}
-      px="4"
+      px="10"
       bg={'rgb( 245, 241, 236)'}
     >
       <Stack spacing={{base: '6', md: '8'}} align="start">
@@ -42,9 +43,9 @@ export const Footer = () => (
               Product
             </Text>
             <Stack spacing="3" shouldWrapChildren>
-              <Button variant="link">About us</Button>
-              <Button variant="link">Contact</Button>
-              <Button variant="link">FAQ</Button>
+              <NextLink href="#">Collection</NextLink>
+              <NextLink href="#">Contact</NextLink>
+              <NextLink href="#">FAQ</NextLink>
             </Stack>
           </Stack>
           <Stack spacing="4" minW={{base: '30', sm: '36'}} flex="1">
@@ -52,9 +53,9 @@ export const Footer = () => (
               Legal
             </Text>
             <Stack spacing="3" shouldWrapChildren>
-              <Button variant="link">Privacy</Button>
-              <Button variant="link">Terms</Button>
-              <Button variant="link">License</Button>
+              <NextLink href="#">Privacy</NextLink>
+              <NextLink href="#">Terms</NextLink>
+              <NextLink href="#">License</NextLink>
             </Stack>
           </Stack>
         </Stack>
@@ -82,7 +83,8 @@ export const Footer = () => (
       justify="space-between"
       direction={{base: 'column-reverse', md: 'row'}}
       align="center"
-      px="64px"
+      // px="64px"
+      px="10"
       bg={'rgb( 245, 241, 236)'}
     >
       <Text fontSize="sm" color="subtle">

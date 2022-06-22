@@ -16,8 +16,8 @@ import {NextLink} from './NextLink'
 const DesktopNavHeader = () => (
   <Box
     py="6"
-    bg={mode('white', 'gray.800')}
     px="10"
+    bg={mode('white', 'gray.800')}
     display={{base: 'none', lg: 'block'}}
     borderBottom="1px"
     borderColor="gray.200"
