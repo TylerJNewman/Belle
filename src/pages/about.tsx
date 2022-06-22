@@ -42,7 +42,7 @@ const About = ({content}) => {
                   )
                 },
                 img: ({src, ...rest}) => (
-                  <Box my={12}>
+                  <Box my={20}>
                     <img src={src} />
                   </Box>
                 ),
